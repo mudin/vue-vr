@@ -89,3 +89,10 @@ Or
     </script>
 </body>
 ```
+
+## TODO List
+* 360 Video
+* Hotspots
+
+## LICENSE
+MIT
