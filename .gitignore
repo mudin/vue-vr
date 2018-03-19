@@ -5,5 +5,5 @@ yarn-debug.log*
 yarn-error.log*
 docs/
 dist/
-dist/static/
+dist/demos/
 .idea/

@@ -16,6 +16,8 @@ const routes = pages.map( page => {
     }
 } )
 
+console.log(routes);
+
 routes.push( {
     path: '*',
     redirect: '/demo-pano'

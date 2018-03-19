@@ -70,14 +70,14 @@ export default {
     }
 
     .demo-block .demo-block-preview {
-        width: 50%;
+        width: 70%;
         height: 100%;
         float: left;
         position: relative;
     }
 
     .demo-block .demo-block-code {
-        width: 50%;
+        width: 30%;
         height: 100%;
         background: #f9fafc;
         border-left: solid 1px #dfe2e7;

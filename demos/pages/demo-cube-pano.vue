@@ -3,8 +3,9 @@
         <template slot="preview">
             <Pano
                 @on-load="onLoad"
-                src="./../static/equirectangular.jpg"></Pano>
-            <div class="example-loading" v-show="loading"></div>
+                type='cube'
+                source="assets/faces/pano_%s.jpg"></Pano>
+            <div class="demo-loading" v-show="loading"></div>
         </template>
     </demo-block>
 </template>
@@ -17,12 +18,11 @@ const code = `
 <template>
     <Pano
         @on-load="onLoad"
-        src="./../static/equirectangular.jpg">
-    </Pano>
+        type='cube'
+        source="assets/faces/pano_%s.jpg"></Pano>
 </template>
-
 <script>
-    import { Pano } from 'vue-vr'
+    import { Pano } from 'vuejs-vr'
 
     export default {
         components: {
@@ -38,7 +38,7 @@ const htmlCode = `
         <Pano
             @on-load="onLoad"
             type='cube'
-            source="./../static/equirectangular.jpg">
+            source="assets/faces/pano_%s.jpg">
         </Pano>
     </div>
     #scripts#
@@ -51,7 +51,7 @@ const htmlCode = `
 `
 
 export default {
-    name: 'demo-video-pano',
+    name: 'demo-cube-pano',
     data () {
     	return {
             code,

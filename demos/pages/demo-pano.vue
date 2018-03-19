@@ -3,8 +3,8 @@
         <template slot="preview">
             <Pano
                 @on-load="onLoad"
-                source="static/equirectangular.jpg"></Pano>
-            <div class="example-loading" v-show="loading"></div>
+                source="assets/equirectangular.jpg"></Pano>
+            <div class="demo-loading" v-show="loading"></div>
         </template>
     </demo-block>
 </template>
@@ -17,7 +17,7 @@ const code = `
 <template>
     <Pano
         @on-load="onLoad"
-        src="./../static/equirectangular.jpg">
+        src="assets/equirectangular.jpg">
     </Pano>
 </template>
 
@@ -38,7 +38,7 @@ const htmlCode = `
         <Pano
             @on-load="onLoad"
             type='cube'
-            source="./../static/equirectangular.jpg">
+            source="assets/equirectangular.jpg">
         </Pano>
     </div>
     #scripts#

@@ -1,7 +1,17 @@
 <template>
-    <div class="examples">
-        <div class="examples-content">    
-            <div class="examples-pages">
+    <div class="demos">
+        <div class="demos-content"> 
+            <ul class="demos-menu">
+                <li class="demos-menu-title">demos</li>
+                <li class="demos-menu-item">
+                    <router-link to="demo-pano">basic panorama</router-link>
+                </li>
+                <li class="demos-menu-item">
+                    <router-link to="demo-cube-pano">Cube Faces</router-link>
+                </li>
+            </ul>
+   
+            <div class="demos-pages">
                 <router-view></router-view>
             </div>
         </div>
@@ -31,7 +41,7 @@ a {
     text-decoration: none;
 }
 
-html, body, .examples {
+html, body, .demos {
     width: 100%;
     height: 100%;
     color: #657180;
@@ -45,7 +55,7 @@ body {
     background: #fff;
 }
 
-.examples-header {
+.demos-header {
     position: absolute;
     top: 0;
     width: 100%;
@@ -56,27 +66,27 @@ body {
     line-height: 20px;
 }
 
-.examples-header .title {
+.demos-header .title {
     font-weight: bold;
     font-size: 18px;
     display: inline-block;
 }
 
-.examples-header .github {
+.demos-header .github {
     color: #39f;
     display: inline-block;
     font-size: 12px;
     float: right;
 }
 
-.examples-content {
+.demos-content {
     width: 100%;
     height: 100%;
     padding-top: 52px;
     overflow: hidden;
 }
 
-.examples-menu {
+.demos-menu {
     float: left;
     width: 230px;
     height: 100%;
@@ -84,7 +94,7 @@ body {
     padding: 10px 30px;
 }
 
-.examples-menu .examples-menu-item {
+.demos-menu .demos-menu-item {
     display: block;
     width: 100%;
     height: 30px;
@@ -93,13 +103,13 @@ body {
     cursor: pointer;
 }
 
-.examples-menu .examples-menu-item > a {
+.demos-menu .demos-menu-item > a {
     display: block;
     width: 100%;
     height: 100%;
 }
 
-.examples-menu .examples-menu-title {
+.demos-menu .demos-menu-title {
     display: block;
     width: 100%;
     padding: 6px 0;
@@ -108,16 +118,16 @@ body {
     font-weight: bold;
 }
 
-.examples-menu .examples-menu-item:hover > a {
+.demos-menu .demos-menu-item:hover > a {
     color: #39f;
 }
 
-.examples-pages {
+.demos-pages {
     height: 100%;
     overflow: hidden;
 }
 
-.example-loading {
+.demo-loading {
     position: absolute;
     top: 0;
     left: 0;
@@ -125,7 +135,7 @@ body {
     height: 100%;
     text-align: center;
 }
-.example-loading::before {
+.demo-loading::before {
     content: '';
     border-radius: 100%;
     margin: 2px;
@@ -138,7 +148,7 @@ body {
     vertical-align: middle;
 }
 
-.example-loading::after {
+.demo-loading::after {
     content: '';
     display: inline-block;
     height: 100%;

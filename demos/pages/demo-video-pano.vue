@@ -3,9 +3,8 @@
         <template slot="preview">
             <Pano
                 @on-load="onLoad"
-                type='cube'
-                source="static/pano_1_10/pano_%s.jpg"></Pano>
-            <div class="example-loading" v-show="loading"></div>
+                src="./../assets/equirectangular.jpg"></Pano>
+            <div class="demo-loading" v-show="loading"></div>
         </template>
     </demo-block>
 </template>
@@ -18,7 +17,7 @@ const code = `
 <template>
     <Pano
         @on-load="onLoad"
-        src="./../static/equirectangular.jpg">
+        src="./../assets/equirectangular.jpg">
     </Pano>
 </template>
 
@@ -39,7 +38,7 @@ const htmlCode = `
         <Pano
             @on-load="onLoad"
             type='cube'
-            source="./../static/equirectangular.jpg">
+            source="./../assets/equirectangular.jpg">
         </Pano>
     </div>
     #scripts#
@@ -52,7 +51,7 @@ const htmlCode = `
 `
 
 export default {
-    name: 'demo-cube-pano',
+    name: 'demo-video-pano',
     data () {
     	return {
             code,

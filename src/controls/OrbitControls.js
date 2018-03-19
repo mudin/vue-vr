@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-// https://github.com/mrdoob/three.js/blob/dev/examples/js/controls/OrbitControls.js
+// https://github.com/mrdoob/three.js/blob/dev/demos/js/controls/OrbitControls.js
 
 const OrbitControls = function ( object, domElement ) {
 
