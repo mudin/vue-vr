@@ -6,3 +6,5 @@ yarn-error.log*
 docs/
 dist/
 dist/static/
+build/
+build/static/

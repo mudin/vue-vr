@@ -9,8 +9,8 @@
     "component"
   ],
   "version": "1.0.0",
-  "author": "Mudin <imudin07@gmail.com>",
-  "main": "dist/vue-vr.min.js",
+  "author": "imudin <imudin07@gmail.com>",
+  "main": "build/vue-vr.min.js",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
@@ -77,12 +77,5 @@
     "> 1%",
     "last 2 versions",
     "not ie < 11"
-  ],
-  "overrides": {
-    "panolens.js": {
-      "dependencies": [
-        "three"
-      ]
-    }
-  }
+  ]
 }
