@@ -1,3 +1,5 @@
+import * as THREE from 'three';
+
 /**
  * Panolens.js
  * @author pchen66

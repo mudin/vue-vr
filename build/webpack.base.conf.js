@@ -26,11 +26,6 @@ module.exports = {
       '@': resolve('src')
     }
   },
-  plugins:[
-    new webpack.ProvidePlugin({
-      'THREE': 'three'
-    })
-  ],
   module: {
     rules: [
       {
