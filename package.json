@@ -10,7 +10,7 @@
   ],
   "version": "1.0.0",
   "author": "imudin <imudin07@gmail.com>",
-  "main": "build/vue-vr.min.js",
+  "main": "dist/vue-vr.min.js",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
