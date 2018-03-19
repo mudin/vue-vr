@@ -8,7 +8,7 @@
     "three.js",
     "component"
   ],
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "imudin <imudin07@gmail.com>",
   "main": "dist/vue-vr.min.js",
   "scripts": {
