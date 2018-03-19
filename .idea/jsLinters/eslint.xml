@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EslintConfiguration">
+    <custom-configuration-file used="false" path="$PROJECT_DIR$/../antd-starter/.eslintrc.js" />
+    <additional-rules-dir value="/usr/local/lib/node_modules/eslint-config-airbnb" />
+  </component>
+</project>
