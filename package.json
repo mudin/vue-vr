@@ -1,5 +1,5 @@
 {
-  "name": "vue-vr",
+  "name": "vuejs-vr",
   "description": "A framework for building VR applications with Vue",
   "keywords": [
     "vue",
@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "npm": "^5.7.1",
-    "panolens.js": "0.0.0",
     "three": "^0.88.0",
     "vue": "^2.2.6"
   },
