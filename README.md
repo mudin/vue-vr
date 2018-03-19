@@ -2,7 +2,7 @@
 A framework for building VR applications with Vue
 based on [threejs](https://threejs.org/) and [Panolens](https://pchen66.github.io/Panolens/), inspired by [react-vr](https://github.com/facebook/react-vr)
 
-## demo
+## Demos
 [PANORAMA DEMO](https://imudin.github.io/vue-vr/#/demo-pano)
 
 [CUBE DEMO](https://imudin.github.io/vue-vr/#/demo-cube-pano)
