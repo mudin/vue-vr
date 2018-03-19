@@ -44,7 +44,8 @@ export default {
     }
 
     this.viewer = new PanoLens.Viewer({
-      container: this.$el
+      container: this.$el,
+      cameraFov:100
     });
 
     console.log(this.source);
@@ -85,11 +86,14 @@ export default {
                 this.panorama = new PanoLens.ImagePanorama(this.source);
                 break;
         }
-
-        this.panorama.y = Math.PI/2.;
+        
         
         this.viewer.add(this.panorama);
-        this.$emit("on-load");
+
+        var that = this;
+        this.panorama.addEventListener('load', function () {
+          that.$emit("on-load");
+        });
     }
   }
 };
