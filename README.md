@@ -3,9 +3,11 @@ A framework for building VR applications with Vue
 based on [threejs](https://threejs.org/) and [Panolens](https://pchen66.github.io/Panolens/), inspired by [react-vr](https://github.com/facebook/react-vr)
 
 ## Demos
-[PANORAMA DEMO](https://imudin.github.io/vue-vr/#/demo-pano)
+[Image Pano](https://imudin.github.io/vue-vr/#/demo-pano)
 
-[CUBE DEMO](https://imudin.github.io/vue-vr/#/demo-cube-pano)
+[Cube Pano](https://imudin.github.io/vue-vr/#/demo-cube-pano)
+
+[Video Pano](https://imudin.github.io/vue-vr/#/demo-video-pano)
 
 ## Getting started
 using npm
@@ -93,9 +95,46 @@ Or
 </body>
 ```
 
+
+
+####360 video:
+Panorama with 360 video
+```vue
+<template>
+    <Pano type='video 'source="video.mp4"></Pano>
+</template>
+<script>
+    import { Pano } from 'vuejs-vr'
+
+    export default {
+        components: { Pano }
+    }
+</script>
+```
+Or
+```vue
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div id="app">
+        <Pano type='video 'source="video.mp4"></Pano>
+    </div>
+    <script src="vue.js"></script>
+    <script src="vuejs-vr.js"></script>
+    <script>
+        new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+```
+
 ## TODO List
-* 360 Video
 * Hotspots
+* 3D objects
 
 ## Contributing
 If you would like to contribute code you can do so through GitHub by forking the repository and sending a pull request.
