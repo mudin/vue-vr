@@ -1,64 +1,74 @@
 <template>
-    <div class="demo-block">
-        <div class="demo-block-preview">
-            <slot name="preview"></slot>
-        </div>
-        <div class="demo-block-code">
-            <div class="demo-block-code-box">
-                <h3>Vue Component & Webpack</h3>
-                <div class="demo-block-code-box-content">
-                    <pre>
-                        <code ref="vueCode" class="html">{{ vueCode | code }}</code>
-                    </pre>
-                </div>
-            </div>
-            <div class="demo-block-code-box">
-                <h3>HTML & JS</h3>
-                <div class="demo-block-code-box-content">
-                    <pre>
-                        <code ref="htmlCode" class="html">{{ htmlCode | code }}</code>
-                    </pre>
-                </div>
-            </div>
-        </div>
+  <div class="demo-block">
+    <div class="demo-block-preview">
+      <slot name="preview"></slot>
     </div>
+    <div class="demo-block-code">
+      <div class="demo-block-code-box">
+        <h3>Vue Component & Webpack</h3>
+        <div class="demo-block-code-box-content">
+          <pre>
+               <code
+                ref="vueCode"
+                class="html">{{ vueCode | code }}</code>
+          </pre>
+        </div>
+      </div>
+      <div class="demo-block-code-box">
+        <h3>HTML & JS</h3>
+        <div class="demo-block-code-box-content">
+          <pre>
+            <code
+              ref="htmlCode"
+              class="html">{{ htmlCode | code }}
+            </code>
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import 'highlight.js/styles/github.css';
+import 'highlight.js/styles/github.css'
 import hljs from 'highlight.js'
 
-const codeHandler = code => {
-    const scripts = `<script src="vue.js"><\/script>
-    <script src="vue-vr.min.js"><\/script>`;
-
-    return code.replace( /#scripts#/ig, scripts );
+/* eslint-disable no-useless-escape */
+const codeHandler = (code) => {
+  const scripts = `
+  <script src="vue.js"><\/script> 
+  <script src="vue-vr.min.js"><\/script>`
+  return code.replace(/#scripts#/ig, scripts)
 }
+/* eslint-enable no-useless-escape */
 
 export default {
-    name: 'app',
-    props: {
-        vueCode: String,
-        htmlCode: {
-            type: String,
-            default: '// TODO'
-        }
+  name: 'App',
+  props: {
+    vueCode: {
+      type: String,
+      default: ''
     },
-    mounted () {
-        hljs.highlightBlock( this.$refs.vueCode );
-        hljs.highlightBlock( this.$refs.htmlCode );
-    },
-    data () {
-    	return {}
-    },
-    filters: {
-        code ( val ) {
-            return codeHandler( val );
-        }
-    },
-    components: {
-
+    htmlCode: {
+      type: String,
+      default: '// TODO'
     }
+  },
+  mounted () {
+    hljs.highlightBlock(this.$refs.vueCode)
+    hljs.highlightBlock(this.$refs.htmlCode)
+  },
+  data () {
+    return {}
+  },
+  filters: {
+    code (val) {
+      return codeHandler(val)
+    }
+  },
+  components: {
+
+  }
 }
 </script>
 <style>
@@ -85,11 +95,9 @@ export default {
         float: left;
     }
 
-
     .demo-block .demo-block-code pre code {
         font: normal 10pt Consolas, Monaco, monospace;
     }
-
 
     .demo-block .demo-block-code .demo-block-code-box {
         width: 100%;

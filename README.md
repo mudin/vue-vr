@@ -22,6 +22,7 @@ Or Download <a href="https://unpkg.com/vuejs-vr@1.0.3/dist/vue-vr.min.js">vue-vr
 ## Usage
 
 ####For simple panorama:
+Panorama by equirectangular image
 ```vue
 <template>
     <Pano source="pano.jpg"></Pano>
@@ -57,6 +58,7 @@ Or
 
 
 ####For cube faces:
+Panorama with a six-face cubemap
 ```vue
 <template>
     <Pano type='cube 'source="pano_%s.jpg"></Pano>

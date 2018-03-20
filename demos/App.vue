@@ -1,29 +1,34 @@
 <template>
-    <div class="demos">
-        <div class="demos-content"> 
-            <ul class="demos-menu">
-                <li class="demos-menu-title">demos</li>
-                <li class="demos-menu-item">
-                    <router-link to="demo-pano">basic panorama</router-link>
-                </li>
-                <li class="demos-menu-item">
-                    <router-link to="demo-cube-pano">Cube Faces</router-link>
-                </li>
-            </ul>
-   
-            <div class="demos-pages">
-                <router-view></router-view>
-            </div>
-        </div>
+  <div class="demos">
+    <div class="demos-content">
+      <ul class="demos-menu">
+        <li class="demos-menu-title">demos</li>
+        <li class="demos-menu-item">
+          <router-link to="demo-pano">basic panorama</router-link>
+        </li>
+        <li class="demos-menu-item">
+          <router-link to="demo-cube-pano">Cube Faces</router-link>
+        </li>
+        <li class="demos-menu-item">
+          <router-link to="demo-video-pano">Video Pano</router-link>
+        </li>
+      </ul>
+
+      <div class="demos-pages">
+        <router-view></router-view>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
 
 export default {
-    name: 'app'
+  name: 'App'
 }
+
 </script>
+
 <style>
 * {
     margin: 0;
@@ -32,7 +37,9 @@ export default {
     box-sizing: border-box;
 }
 
-ul, ol, li {
+ul,
+ol,
+li {
     list-style: none;
 }
 
@@ -41,7 +48,9 @@ a {
     text-decoration: none;
 }
 
-html, body, .demos {
+html,
+body,
+.demos {
     width: 100%;
     height: 100%;
     color: #657180;
@@ -49,9 +58,7 @@ html, body, .demos {
 
 body {
     background: #eee;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                 "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
-                 SimSun, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
     background: #fff;
 }
 
@@ -60,7 +67,7 @@ body {
     top: 0;
     width: 100%;
     background: #f3f6fb;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
     border-bottom: solid 1px #dfe2e7;
     padding: 15px 15px 15px 30px;
     line-height: 20px;
@@ -103,7 +110,7 @@ body {
     cursor: pointer;
 }
 
-.demos-menu .demos-menu-item > a {
+.demos-menu .demos-menu-item>a {
     display: block;
     width: 100%;
     height: 100%;
@@ -118,7 +125,7 @@ body {
     font-weight: bold;
 }
 
-.demos-menu .demos-menu-item:hover > a {
+.demos-menu .demos-menu-item:hover>a {
     color: #39f;
 }
 
@@ -135,6 +142,7 @@ body {
     height: 100%;
     text-align: center;
 }
+
 .demo-loading::before {
     content: '';
     border-radius: 100%;
@@ -156,7 +164,7 @@ body {
     vertical-align: middle;
 }
 
-@keyframes loading-rotate{
+@keyframes loading-rotate {
     0% {
         transform: rotate(0) scale(1);
     }
@@ -167,5 +175,4 @@ body {
         transform: rotate(360deg) scale(1);
     }
 }
-
 </style>

@@ -2,20 +2,20 @@ import Vue from 'vue'
 
 import Pano from './Pano.vue'
 const components = [
-    Pano
+  Pano
 ]
 
-const install = ( Vue ) => {
-    components.map( component => {
-        Vue.component( component.name, component );
-    } );
+const install = (Vue) => {
+  components.map(component => {
+    Vue.component(component.name, component)
+  })
 }
 
-if ( typeof window !== 'undefined' && window.Vue ) {
-    install( window.Vue );
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue)
 }
 
 export {
-    install,
-    Pano
+  install,
+  Pano
 }

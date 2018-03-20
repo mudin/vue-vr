@@ -1,23 +1,30 @@
 <template>
-    <demo-block :vue-code="code" :html-code="htmlCode">
-        <template slot="preview">
-            <Pano
-                @on-load="onLoad"
-                src="./../assets/equirectangular.jpg"></Pano>
-            <div class="demo-loading" v-show="loading"></div>
-        </template>
-    </demo-block>
+  <demo-block
+    :vue-code="code"
+    :html-code="htmlCode">
+    <template slot="preview">
+      <Pano
+        @on-load="onLoad"
+        type='video'
+        source="./../assets/ClashofClans.mp4"></Pano>
+      <div
+        class="demo-loading"
+        v-show="loading"></div>
+    </template>
+  </demo-block>
 </template>
 
 <script>
-import DemoBlock from '../components/demo-block';
+import DemoBlock from '../components/demo-block'
 import Pano from '../../src/Pano.vue'
 
+/* eslint-disable no-useless-escape */
 const code = `
 <template>
     <Pano
         @on-load="onLoad"
-        src="./../assets/equirectangular.jpg">
+        type='video'
+        source="./../assets/ClashofClans.mp4">
     </Pano>
 </template>
 
@@ -29,16 +36,15 @@ const code = `
             Pano
         }
     }
-<\/script>
-`
+<\/script>`
 
 const htmlCode = `
 <body>
     <div id="app">
         <Pano
             @on-load="onLoad"
-            type='cube'
-            source="./../assets/equirectangular.jpg">
+            type='video'
+            source="./../assets/ClashofClans.mp4">
         </Pano>
     </div>
     #scripts#
@@ -47,26 +53,26 @@ const htmlCode = `
             el: '#app'
         })
     <\/script>
-</body>
-`
+</body>`
+/* eslint-enable no-useless-escape */
 
 export default {
-    name: 'demo-video-pano',
-    data () {
-    	return {
-            code,
-            htmlCode,
-            loading: true
-    	}
-    },
-    methods: {
-        onLoad () {
-            this.loading = false;
-        }
-    },
-    components: {
-        Pano,
-        DemoBlock
+  name: 'DemoVideoPano',
+  data () {
+    return {
+      code,
+      htmlCode,
+      loading: true
     }
+  },
+  methods: {
+    onLoad () {
+      this.loading = false
+    }
+  },
+  components: {
+    Pano,
+    DemoBlock
+  }
 }
 </script>

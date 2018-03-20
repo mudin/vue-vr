@@ -1,19 +1,25 @@
 <template>
-    <demo-block :vue-code="code" :html-code="htmlCode">
-        <template slot="preview">
-            <Pano
-                @on-load="onLoad"
-                type='cube'
-                source="assets/faces/pano_%s.jpg"></Pano>
-            <div class="demo-loading" v-show="loading"></div>
-        </template>
-    </demo-block>
+  <demo-block
+    :vue-code="code"
+    :html-code="htmlCode">
+    <template slot="preview">
+      <Pano
+        @on-load="onLoad"
+        type='cube'
+        source="assets/faces/pano_%s.jpg"></Pano>
+      <div
+        class="demo-loading"
+        v-show="loading"></div>
+    </template>
+  </demo-block>
 </template>
 
 <script>
-import DemoBlock from '../components/demo-block';
+
+import DemoBlock from '../components/demo-block'
 import Pano from '../../src/Pano.vue'
 
+/* eslint-disable no-useless-escape */
 const code = `
 <template>
     <Pano
@@ -29,8 +35,7 @@ const code = `
             Pano
         }
     }
-<\/script>
-`
+ <\/script>`
 
 const htmlCode = `
 <body>
@@ -49,24 +54,25 @@ const htmlCode = `
     <\/script>
 </body>
 `
+/* eslint-enable no-useless-escape */
 
 export default {
-    name: 'demo-cube-pano',
-    data () {
-    	return {
-            code,
-            htmlCode,
-            loading: true
-    	}
-    },
-    methods: {
-        onLoad () {
-            this.loading = false;
-        }
-    },
-    components: {
-        Pano,
-        DemoBlock
+  name: 'DemoCubePano',
+  data () {
+    return {
+      code,
+      htmlCode,
+      loading: true
     }
+  },
+  methods: {
+    onLoad () {
+      this.loading = false
+    }
+  },
+  components: {
+    Pano,
+    DemoBlock
+  }
 }
 </script>

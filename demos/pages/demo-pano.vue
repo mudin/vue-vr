@@ -1,18 +1,23 @@
 <template>
-    <demo-block :vue-code="code" :html-code="htmlCode">
-        <template slot="preview">
-            <Pano
-                @on-load="onLoad"
-                source="assets/equirectangular.jpg"></Pano>
-            <div class="demo-loading" v-show="loading"></div>
-        </template>
-    </demo-block>
+  <demo-block
+    :vue-code="code"
+    :html-code="htmlCode">
+    <template slot="preview">
+      <Pano
+        @on-load="onLoad"
+        source="assets/equirectangular.jpg"></Pano>
+      <div
+        class="demo-loading"
+        v-show="loading"></div>
+    </template>
+  </demo-block>
 </template>
 
 <script>
-import DemoBlock from '../components/demo-block';
+import DemoBlock from '../components/demo-block'
 import Pano from '../../src/Pano.vue'
 
+/* eslint-disable no-useless-escape */
 const code = `
 <template>
     <Pano
@@ -47,26 +52,26 @@ const htmlCode = `
             el: '#app'
         })
     <\/script>
-</body>
-`
+</body>`
+/* eslint-enable no-useless-escape */
 
 export default {
-    name: 'demo-pano',
-    data () {
-    	return {
-            code,
-            htmlCode,
-            loading: true
-    	}
-    },
-    methods: {
-        onLoad () {
-            this.loading = false;
-        }
-    },
-    components: {
-        Pano,
-        DemoBlock
+  name: 'DemoPano',
+  data () {
+    return {
+      code,
+      htmlCode,
+      loading: true
     }
+  },
+  methods: {
+    onLoad () {
+      this.loading = false
+    }
+  },
+  components: {
+    Pano,
+    DemoBlock
+  }
 }
 </script>

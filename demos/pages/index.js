@@ -3,9 +3,9 @@ import DemoCubePano from './demo-cube-pano'
 import DemoVideoPano from './demo-video-pano'
 
 const pages = [
-    DemoPano,
-    DemoCubePano,
-    DemoVideoPano
+  DemoPano,
+  DemoCubePano,
+  DemoVideoPano
 ]
 
-export { pages };
+export { pages }
