@@ -7,6 +7,7 @@
 import PanoLens from './lib/panolens'
 
 export default {
+  name: 'Pano',
   props: {
     source: {
       type: String,
