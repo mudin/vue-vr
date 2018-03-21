@@ -6,7 +6,7 @@
       <Pano
         @on-load="onLoad"
         type='video'
-        source="./../assets/ClashofClans.mp4"></Pano>
+        source="assets/ClashofClans.mp4"></Pano>
       <div
         class="demo-loading"
         v-show="loading"></div>
@@ -24,7 +24,7 @@ const code = `
     <Pano
         @on-load="onLoad"
         type='video'
-        source="./../assets/ClashofClans.mp4">
+        source="assets/ClashofClans.mp4">
     </Pano>
 </template>
 
@@ -44,7 +44,7 @@ const htmlCode = `
         <Pano
             @on-load="onLoad"
             type='video'
-            source="./../assets/ClashofClans.mp4">
+            source="assets/ClashofClans.mp4">
         </Pano>
     </div>
     #scripts#

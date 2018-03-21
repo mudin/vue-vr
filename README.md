@@ -16,10 +16,10 @@ npm install vuejs-vr --save
 ```
 Or using script tag for global use
 ```html
-<script src="https://unpkg.com/vuejs-vr@1.0.3/dist/vue-vr.min.js"></script>
+<script src="https://unpkg.com/vuejs-vr@latest/dist/vue-vr.min.js"></script>
 ```
 
-Or Download <a href="https://unpkg.com/vuejs-vr@1.0.3/dist/vue-vr.min.js">vue-vr.min.js</a> and include it in your html
+Or Download <a href="https://unpkg.com/vuejs-vr@latest/dist/vue-vr.min.js">vue-vr.min.js</a> and include it in your html
 
 ## Usage
 
