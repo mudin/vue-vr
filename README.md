@@ -9,6 +9,8 @@ based on [threejs](https://threejs.org/) and [Panolens](https://pchen66.github.i
 
 [Video Pano](https://imudin.github.io/vue-vr/#/demo-video-pano)
 
+[VR Tour](https://imudin.github.io/vue-vr/#/demo-tour)
+
 ## Getting started
 using npm
 ```
