@@ -6,9 +6,11 @@
     "vue-vr",
     "panolens.js",
     "three.js",
-    "component"
+    "component",
+    "vr",
+    "vr tour"
   ],
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "imudin <imudin07@gmail.com>",
   "main": "dist/vue-vr.min.js",
   "scripts": {
