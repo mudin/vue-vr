@@ -12,6 +12,9 @@
         <li class="demos-menu-item">
           <router-link to="demo-video-pano">Video Pano</router-link>
         </li>
+        <li class="demos-menu-item">
+          <router-link to="demo-tour">VR Tour</router-link>
+        </li>
       </ul>
 
       <div class="demos-pages">
