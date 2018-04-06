@@ -25,6 +25,10 @@ Or Download <a href="https://unpkg.com/vuejs-vr@latest/dist/vue-vr.min.js">vue-v
 
 ## Installing & Running Locally
 
+Clone the repository using git:
+```
+git clone https://github.com/imudin/vue-vr.git 
+```
 Installing all dependencies:
 ```
 npm install 
