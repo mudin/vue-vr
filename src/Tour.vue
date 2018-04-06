@@ -12,6 +12,8 @@
 <script>
 import PanoLens from './lib/panolens'
 import * as THREE from 'three'
+const _log = console.log.bind(console);
+
 export default {
   name: 'Tour',
   props: {
@@ -92,31 +94,31 @@ export default {
     },
     loadScene (index) {
       this.$emit('on-load-start')
-      console.log('this.scenes = ' + this.scenes)
+      _log('this.scenes = ' + this.scenes)
       if (!this.scenes || this.scenes.length === 0) return
 
       if (this.scene_index === index) return
 
       this.scene_index = index
 
-      var scene = this.scenes[index]
+      let scene = this.scenes[index]
 
-      var pano = scene.panorama
-      var source = pano.source
+      let pano = scene.panorama
+      let source = pano.source
 
       switch (pano.type) {
         case 'cube':
-          var l = source.replace('%s', 'l')
-          var f = source.replace('%s', 'f')
-          var r = source.replace('%s', 'r')
-          var b = source.replace('%s', 'b')
-          var u = source.replace('%s', 'u')
-          var d = source.replace('%s', 'd')
+          let l = source.replace('%s', 'l')
+          let f = source.replace('%s', 'f')
+          let r = source.replace('%s', 'r')
+          let b = source.replace('%s', 'b')
+          let u = source.replace('%s', 'u')
+          let d = source.replace('%s', 'd')
           this.panorama = new PanoLens.CubePanorama([r, l, u, d, f, b])
           break
         case 'video':
           this.panorama = new PanoLens.VideoPanorama(source, { autoplay: true })
-          console.log('this is video')
+          _log('this is video')
           break
         default:
           this.panorama = new PanoLens.ImagePanorama(source)
@@ -136,8 +138,8 @@ export default {
 
       this.viewer.control.target = this.viewer.panorama.position
 
-      console.log(this.viewer)
-      console.log('panorama = ', this.panorama)
+      _log(this.viewer)
+      _log('panorama = ', this.panorama)
 
       // remove arrows if exist
       if (this.arrowGroup) {
@@ -156,37 +158,37 @@ export default {
       this.arrowGroup = new THREE.Object3D()
 
       scene.connections.forEach(key => {
-        console.log('connections key = ', key)
-        var index = this.getSceneIndexByKey(key)
-        console.log('connections index = ', index)
+        _log('connections key = ', key)
+        let index = this.getSceneIndexByKey(key)
+        _log('connections index = ', index)
         if (index === -1) return
 
-        var hotspot = addHotspot(scene, this.scenes[index])
+        let hotspot = addHotspot(scene, this.scenes[index])
         this.viewer.add(hotspot)
 
         this.hotspots.push(hotspot)
 
-        var arrow = addArrow(scene, this.scenes[index])
+        let arrow = addArrow(scene, this.scenes[index])
 
         arrow.addEventListener('mouseover', () => {
-          console.log('hoverred')
+          _log('hoverred')
         })
 
         this.arrowGroup.add(arrow)
       })
 
-      var that = this
+      let that = this
 
-      var raycaster = new THREE.Raycaster()
+      let raycaster = new THREE.Raycaster()
 
-      var INTERSECTED = null
+      let INTERSECTED = null
 
       this.viewer.container.addEventListener('click', (event) => {
         if (Date.now() - timeStamp < rate) return
 
         if (INTERSECTED) {
-          console.log(INTERSECTED.targetScene)
-          // var index = that.getSceneIndexByKey(INTERSECTED.targetScene.key)
+          _log(INTERSECTED.targetScene)
+          // let index = that.getSceneIndexByKey(INTERSECTED.targetScene.key)
 
           alert('TODO: move to next scene ' + INTERSECTED.targetScene.key)
 
@@ -202,18 +204,18 @@ export default {
       })
 
       this.viewer.container.addEventListener('mousemove', (event) => {
-        // console.log(e)
+        // _log(e)
 
-        var mouse = new THREE.Vector2()
-        var camera = that.viewer.camera
+        let mouse = new THREE.Vector2()
+        let camera = that.viewer.camera
         mouse.x = ((event.clientX - that.$el.parentElement.offsetLeft) / that.viewer.container.offsetWidth) * 2 - 1
         mouse.y = -((event.clientY - that.$el.parentElement.offsetTop) / that.viewer.container.offsetHeight) * 2 + 1
 
         raycaster.setFromCamera(mouse, camera)
 
-        var	intersects = raycaster.intersectObjects(that.viewer.scene.children, true)
+        let	intersects = raycaster.intersectObjects(that.viewer.scene.children, true)
 
-        var intersectedObject = null
+        let intersectedObject = null
 
         if (intersects.length >= 0) {
           intersects.forEach((intersect, index) => {
@@ -287,18 +289,18 @@ export default {
   }
 }
 
-var rate = 1000
-var timeStamp = Date.now() - rate
+let rate = 1000
+let timeStamp = Date.now() - rate
 
 function addHotspot (scene, targetScene) {
-  var pos = {
+  let pos = {
     x: targetScene.x,
     y: targetScene.y,
     z: targetScene.z
   }
 
-  var geometry = new THREE.RingGeometry(8, 13, 100, 100)
-  var material = new THREE.MeshPhongMaterial({
+  let geometry = new THREE.RingGeometry(8, 13, 100, 100)
+  let material = new THREE.MeshPhongMaterial({
     color: 1668818,
     emissive: 0xffffff,
     transparent: true,
@@ -309,17 +311,17 @@ function addHotspot (scene, targetScene) {
     polygonOffsetUnits: -4
   })
 
-  var geometryBorder = new THREE.CircleGeometry(9, 32, 32)
-  var materialBorder = new THREE.MeshPhongMaterial()
+  let geometryBorder = new THREE.CircleGeometry(9, 32, 32)
+  let materialBorder = new THREE.MeshPhongMaterial()
   materialBorder.copy(material)
 
   materialBorder.opacity = 0.5
 
-  var circle = new THREE.Mesh(geometryBorder)
+  let circle = new THREE.Mesh(geometryBorder)
 
-  var hotspot = new THREE.Mesh(geometry)
+  let hotspot = new THREE.Mesh(geometry)
 
-  var merged = new THREE.Geometry()
+  let merged = new THREE.Geometry()
 
   circle.updateMatrix()
   merged.merge(circle.geometry, circle.matrix, 0)
@@ -327,7 +329,7 @@ function addHotspot (scene, targetScene) {
 
   merged.merge(hotspot.geometry, hotspot.matrix, 1)
 
-  var group = new THREE.Mesh(merged, new THREE.MeshFaceMaterial([material, materialBorder]))
+  let group = new THREE.Mesh(merged, new THREE.MeshFaceMaterial([material, materialBorder]))
 
   group.rotation.set(toRadian(90), 0, 0)
   group.position.set(pos.x, pos.y - 100, pos.z)
@@ -340,8 +342,8 @@ function addHotspot (scene, targetScene) {
 }
 
 function addArrow (scene, targetScene) {
-  var arrowGeometry = makeArrowGeometry()
-  var arrowMaterial = new THREE.MeshBasicMaterial({
+  let arrowGeometry = makeArrowGeometry()
+  let arrowMaterial = new THREE.MeshBasicMaterial({
     transparent: true,
     opacity: 0.8,
     color: 1668818,
@@ -352,18 +354,18 @@ function addArrow (scene, targetScene) {
     polygonOffsetUnits: -4
   })
 
-  var arrow = new THREE.Mesh(arrowGeometry, arrowMaterial)
+  let arrow = new THREE.Mesh(arrowGeometry, arrowMaterial)
 
-  var x1 = targetScene.x
-  var z1 = targetScene.z
-  var x2 = scene.x
-  var z2 = scene.z
+  let x1 = targetScene.x
+  let z1 = targetScene.z
+  let x2 = scene.x
+  let z2 = scene.z
 
-  var ath = toDegree(Math.atan2((z1 - z2), (x1 - x2)))
+  let ath = toDegree(Math.atan2((z1 - z2), (x1 - x2)))
 
   arrow.rotation.set(toRadian(90), 0, toRadian(ath))
 
-  var arrowPos = sphereToWorld(ath, 0)
+  let arrowPos = sphereToWorld(ath, 0)
 
   arrow.position.set(arrowPos.x, arrowPos.y, arrowPos.z)
   arrow.type = 'arrow'
@@ -372,11 +374,11 @@ function addArrow (scene, targetScene) {
 }
 
 function makeArrowGeometry () {
-  var t = 1 / 10.0
-  var i = 2 * t / 3
-  var n = t * Math.cos(60 * THREE.Math.DEG2RAD)
-  var r = t * Math.sin(60 * THREE.Math.DEG2RAD)
-  var o = new THREE.Shape()
+  let t = 1 / 10.0
+  let i = 2 * t / 3
+  let n = t * Math.cos(60 * THREE.Math.DEG2RAD)
+  let r = t * Math.sin(60 * THREE.Math.DEG2RAD)
+  let o = new THREE.Shape()
   o.moveTo(i, 0)
   o.lineTo(i - n, r)
   o.lineTo(-n, r)
@@ -388,12 +390,12 @@ function makeArrowGeometry () {
 }
 
 function sphereToWorld (ath, atv) {
-  var d = 1 / 2.0
+  let d = 1 / 2.0
   ath += 90
-  var mY = -d * Math.sin(toRadian(atv))
-  var r = -d * Math.cos(toRadian(atv))
-  var mX = r * Math.sin(toRadian(-ath))
-  var mZ = r * Math.cos(toRadian(-ath))
+  let mY = -d * Math.sin(toRadian(atv))
+  let r = -d * Math.cos(toRadian(atv))
+  let mX = r * Math.sin(toRadian(-ath))
+  let mZ = r * Math.cos(toRadian(-ath))
 
   return new THREE.Vector3(mX, mY, mZ)
 }

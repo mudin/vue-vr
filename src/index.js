@@ -1,6 +1,6 @@
 import Vue from 'vue'
-
 import Pano from './Pano.vue'
+
 const components = [
   Pano
 ]

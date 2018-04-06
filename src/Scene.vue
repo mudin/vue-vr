@@ -12,7 +12,9 @@
 <script>
 import PanoLens from './lib/panolens'
 import * as THREE from 'three'
-import {Hotspot} from './lib/hotspots'
+import { Hotspot } from './lib/hotspots'
+const _log = console.log.bind(console);
+
 export default {
   name: 'Tour',
   props: {
@@ -90,7 +92,7 @@ export default {
       return -1
     },
     loadScene () {
-      console.log('this.scenes = ' + this.scenes)
+      _log('this.scenes = ' + this.scenes)
       if (!this.scenes || this.scenes.length === 0) return
 
       var index = this.sceneIndex
@@ -118,7 +120,7 @@ export default {
           break
         case 'video':
           this.panorama = new PanoLens.VideoPanorama(source, { autoplay: true })
-          console.log('this is video')
+          _log('this is video')
           break
         default:
           this.panorama = new PanoLens.ImagePanorama(source)
@@ -134,16 +136,16 @@ export default {
 
       this.viewer.panorama.position.set(scene.x, scene.y, scene.z)
 
-      console.log(THREE.Hotspot)
+      _log(THREE.Hotspot)
 
       // add hotspots
 
       var group = new THREE.Object3D()
 
       scene.connections.forEach(key => {
-        console.log(key)
+        _log(key)
         var index = this.getSceneIndexByKey(key)
-        console.log(index)
+        _log(index)
         if (index === -1) return
 
         var hotspot = addHotspot(scene, this.scenes[index])
@@ -154,7 +156,7 @@ export default {
         var arrow = addArrow(scene, this.scenes[index])
 
         arrow.addEventListener('mouseover', () => {
-          console.log('hoverred')
+          _log('hoverred')
         })
 
         group.add(arrow)
@@ -168,7 +170,7 @@ export default {
 
       this.viewer.container.addEventListener('click', (event) => {
         if (INTERSECTED) {
-          console.log(INTERSECTED.targetScene)
+          _log(INTERSECTED.targetScene)
           that.scene_index = that.getSceneIndexByKey(INTERSECTED.targetScene.key)
 
           that.viewer.remove(that.panorama)
@@ -178,7 +180,7 @@ export default {
       })
 
       this.viewer.container.addEventListener('mousemove', (event) => {
-        // console.log(e)
+        // _log(e)
 
         var mouse = new THREE.Vector2()
         var camera = that.viewer.camera

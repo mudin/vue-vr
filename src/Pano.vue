@@ -5,9 +5,11 @@
 
 <script>
 import PanoLens from './lib/panolens'
+const _log = console.log.bind(console);
 
 export default {
   name: 'Pano',
+
   props: {
     source: {
       type: String,
@@ -26,6 +28,7 @@ export default {
       default: 100
     }
   },
+
   data () {
     return {
       size: {
@@ -36,9 +39,11 @@ export default {
       panorama: null
     }
   },
+  
   created () {
     window.addEventListener('resize', this.onResize, false)
   },
+
   mounted () {
     if (this.width === undefined || this.height === undefined) {
       this.size = {
@@ -61,6 +66,7 @@ export default {
       this.loadPano()
     }
   },
+
   methods: {
     onResize () {
       if (this.width === undefined || this.height === undefined) {
@@ -73,8 +79,8 @@ export default {
       }
     },
     loadPano () {
-      console.log('this.source = ' + this.source)
-      if (!this.source) return
+      _log('this.source = ' + this.source);
+      if (!this.source) return;
 
       switch (this.type) {
         case 'cube':
@@ -103,5 +109,6 @@ export default {
       })
     }
   }
+
 }
 </script>
