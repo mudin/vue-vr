@@ -23,6 +23,22 @@ Or using script tag for global use
 
 Or Download <a href="https://unpkg.com/vuejs-vr@latest/dist/vue-vr.min.js">vue-vr.min.js</a> and include it in your html
 
+## Installing & Running Locally
+
+Installing all dependencies:
+```
+npm install 
+```
+Build by webpack:
+```
+npm run-script build 
+```
+Run locally:
+```
+npm start 
+```
+This will start development server on localhost:8080
+
 ## Usage
 
 ####For simple panorama:
