@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Pano from './Pano.vue'
+import Tour from './Tour.vue'
 
 const components = [
-  Pano
+  Pano,
+  Tour
 ]
 
 const install = (Vue) => {
@@ -17,5 +19,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export {
   install,
-  Pano
+  Pano,
+  Tour
 }
