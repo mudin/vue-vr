@@ -13,6 +13,9 @@
           <router-link to="demo-video-pano">Video Pano</router-link>
         </li>
         <li class="demos-menu-item">
+          <router-link to="demo-scene">Scene with hotspot</router-link>
+        </li>
+        <li class="demos-menu-item">
           <router-link to="demo-tour">VR Tour</router-link>
         </li>
       </ul>

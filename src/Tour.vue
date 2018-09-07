@@ -12,7 +12,7 @@
 <script>
 import PanoLens from './lib/panolens'
 import * as THREE from 'three'
-const _log = console.log.bind(console);
+const _log = console.log.bind(console)
 
 export default {
   name: 'Tour',
@@ -203,79 +203,79 @@ export default {
         }
       })
 
-      this.viewer.container.addEventListener('mousemove', (event) => {
-        // _log(e)
+      // this.viewer.container.addEventListener('mousemove', (event) => {
+      //   // _log(e)
 
-        let mouse = new THREE.Vector2()
-        let camera = that.viewer.camera
-        mouse.x = ((event.clientX - that.$el.parentElement.offsetLeft) / that.viewer.container.offsetWidth) * 2 - 1
-        mouse.y = -((event.clientY - that.$el.parentElement.offsetTop) / that.viewer.container.offsetHeight) * 2 + 1
+      //   let mouse = new THREE.Vector2()
+      //   let camera = that.viewer.camera
+      //   mouse.x = ((event.clientX - that.$el.parentElement.offsetLeft) / that.viewer.container.offsetWidth) * 2 - 1
+      //   mouse.y = -((event.clientY - that.$el.parentElement.offsetTop) / that.viewer.container.offsetHeight) * 2 + 1
 
-        raycaster.setFromCamera(mouse, camera)
+      //   raycaster.setFromCamera(mouse, camera)
 
-        let	intersects = raycaster.intersectObjects(that.viewer.scene.children, true)
+      //   let	intersects = raycaster.intersectObjects(that.viewer.scene.children, true)
 
-        let intersectedObject = null
+      //   let intersectedObject = null
 
-        if (intersects.length >= 0) {
-          intersects.forEach((intersect, index) => {
-            if (intersect.object.type === 'hotspot' || intersect.object.type === 'arrow') {
-              intersectedObject = intersect.object
-            }
-          })
-        }
+      //   if (intersects.length >= 0) {
+      //     intersects.forEach((intersect, index) => {
+      //       if (intersect.object.type === 'hotspot' || intersect.object.type === 'arrow') {
+      //         intersectedObject = intersect.object
+      //       }
+      //     })
+      //   }
 
-        if (intersectedObject) {
-          if (INTERSECTED) {
-            if (INTERSECTED.material.color) {
-              INTERSECTED.material.color.setHex(INTERSECTED.currentHex)
-            }
+      //   if (intersectedObject) {
+      //     if (INTERSECTED) {
+      //       if (INTERSECTED.material.color) {
+      //         INTERSECTED.material.color.setHex(INTERSECTED.currentHex)
+      //       }
 
-            INTERSECTED.scale.set(1, 1, 1)
-          }
-          // store reference to closest object as current intersection object
-          INTERSECTED = intersects[0].object
-          // store color of closest object (for later restoration)
-          if (INTERSECTED.material.color) {
-            INTERSECTED.currentHex = INTERSECTED.material.color.getHex()
-          }
-          // set a new color for closest object
-          if (INTERSECTED.material.color) {
-            INTERSECTED.material.color.setHex(0xffff00)
-          }
-          INTERSECTED.scale.set(1.2, 1.2, 1.2)
-        } else {
-          // restore previous intersection object (if it exists) to its original color
-          if (INTERSECTED) {
-            if (INTERSECTED.material.color) {
-              INTERSECTED.material.color.setHex(INTERSECTED.currentHex)
-            }
-            INTERSECTED.scale.set(1, 1, 1)
-          }
-          // remove previous intersection object reference
-          //     by setting current intersection object to "nothing"
-          INTERSECTED = null
-        }
-      })
+      //       INTERSECTED.scale.set(1, 1, 1)
+      //     }
+      //     // store reference to closest object as current intersection object
+      //     INTERSECTED = intersects[0].object
+      //     // store color of closest object (for later restoration)
+      //     if (INTERSECTED.material.color) {
+      //       INTERSECTED.currentHex = INTERSECTED.material.color.getHex()
+      //     }
+      //     // set a new color for closest object
+      //     if (INTERSECTED.material.color) {
+      //       INTERSECTED.material.color.setHex(0xffff00)
+      //     }
+      //     INTERSECTED.scale.set(1.2, 1.2, 1.2)
+      //   } else {
+      //     // restore previous intersection object (if it exists) to its original color
+      //     if (INTERSECTED) {
+      //       if (INTERSECTED.material.color) {
+      //         INTERSECTED.material.color.setHex(INTERSECTED.currentHex)
+      //       }
+      //       INTERSECTED.scale.set(1, 1, 1)
+      //     }
+      //     // remove previous intersection object reference
+      //     //     by setting current intersection object to "nothing"
+      //     INTERSECTED = null
+      //   }
+      // })
 
-      this.viewer.addUpdateCallback(function () {
-        // if (objects.length > 0) {
-        //   this.position.copy(objects[0].origin)
-        // } else {
+      // this.viewer.addUpdateCallback(function () {
+      //   // if (objects.length > 0) {
+      //   //   this.position.copy(objects[0].origin)
+      //   // } else {
 
-        // }
+      //   // }
 
-        this.position.copy(that.viewer.control.target)
-        // this.rotation.y = that.viewer.camera.rotation.y
-        this.rotation.z = that.viewer.camera.rotation.z
-        // this.rotation.x = that.viewer.camera.rotation.x
-        this.translateZ(0)
-        this.translateX(0)
-        this.translateY(-1)
-        this.translateZ(0)
+      //   this.position.copy(that.viewer.control.target)
+      //   // this.rotation.y = that.viewer.camera.rotation.y
+      //   this.rotation.z = that.viewer.camera.rotation.z
+      //   // this.rotation.x = that.viewer.camera.rotation.x
+      //   this.translateZ(0)
+      //   this.translateX(0)
+      //   this.translateY(-1)
+      //   this.translateZ(0)
 
-        // this.scale.set(that.viewer.zoom)
-      }.bind(this.arrowGroup))
+      //   // this.scale.set(that.viewer.zoom)
+      // }.bind(this.arrowGroup))
 
       this.viewer.add(this.arrowGroup)
       // If you want a visible bounding box

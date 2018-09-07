@@ -12,19 +12,38 @@
 <script>
 import PanoLens from './lib/panolens'
 import * as THREE from 'three'
-import { Hotspot } from './lib/hotspots'
-const _log = console.log.bind(console);
+const _log = console.log.bind(console)
 
 export default {
-  name: 'Tour',
+  name: 'Scene',
   props: {
-    scenes: {
+    pano: {
+      type: Object,
+      default: () => { return {} }
+    },
+    position: {
+      type: Object,
+      default: () => {
+        return {
+          x: 0,
+          y: 0,
+          z: 0
+        }
+      }
+    },
+    rotation: {
+      type: Object,
+      default: () => {
+        return {
+          x: 0,
+          y: 0,
+          z: 0
+        }
+      }
+    },
+    links: {
       type: Array,
       default: () => { return [] }
-    },
-    sceneIndex: {
-      type: Number,
-      default: 0
     },
     width: {
       type: Number,
@@ -83,32 +102,13 @@ export default {
         })
       }
     },
-    getSceneIndexByKey (key) {
-      for (let i = 0; i < this.scenes.length; i++) {
-        if (this.scenes[i].key === key) {
-          return i
-        }
-      }
-      return -1
-    },
     loadScene () {
-      _log('this.scenes = ' + this.scenes)
-      if (!this.scenes || this.scenes.length === 0) return
+      _log('this.pano = ' + this.pano)
+      if (!this.pano) return
 
-      var index = this.sceneIndex
+      var source = this.pano.source
 
-      if (this.scene_index === -1) {
-        this.scene_index = this.sceneIndex
-      } else {
-        index = this.scene_index
-      }
-
-      var scene = this.scenes[index]
-
-      var pano = scene.panorama
-      var source = pano.source
-
-      switch (pano.type) {
+      switch (this.pano.type) {
         case 'cube':
           var l = source.replace('%s', 'l')
           var f = source.replace('%s', 'f')
@@ -132,28 +132,23 @@ export default {
       this.viewer.camera.target = this.panorama.position
 
       this.viewer.panorama.rotation.set(0, Math.PI, 0)
-      this.panorama.parent.rotation.set(0, Math.PI, 0)
+      // this.viewer.rotation.set(0, Math.PI / 2, 0)
 
-      this.viewer.panorama.position.set(scene.x, scene.y, scene.z)
-
-      _log(THREE.Hotspot)
+      this.viewer.panorama.position.copy(this.position)
 
       // add hotspots
 
       var group = new THREE.Object3D()
 
-      scene.connections.forEach(key => {
-        _log(key)
-        var index = this.getSceneIndexByKey(key)
+      this.links.forEach((link, index) => {
         _log(index)
-        if (index === -1) return
 
-        var hotspot = addHotspot(scene, this.scenes[index])
+        var hotspot = addHotspot(link)
         this.viewer.add(hotspot)
 
         this.hotspots.push(hotspot)
 
-        var arrow = addArrow(scene, this.scenes[index])
+        var arrow = addArrow(this.position, link)
 
         arrow.addEventListener('mouseover', () => {
           _log('hoverred')
@@ -265,13 +260,7 @@ export default {
   }
 }
 
-function addHotspot (scene, targetScene) {
-  var pos = {
-    x: targetScene.x,
-    y: targetScene.y,
-    z: targetScene.z
-  }
-
+function addHotspot (hotspotData) {
   var geometry = new THREE.RingGeometry(8, 13, 100, 100)
   var material = new THREE.MeshPhongMaterial({
     color: 1668818,
@@ -305,16 +294,16 @@ function addHotspot (scene, targetScene) {
   var group = new THREE.Mesh(merged, new THREE.MeshFaceMaterial([material, materialBorder]))
 
   group.rotation.set(toRadian(90), 0, 0)
-  group.position.set(pos.x, pos.y - 100, pos.z)
+  group.position.set(hotspotData.position.x, hotspotData.position.y - 100, hotspotData.position.z)
 
   group.type = 'hotspot'
 
-  group.targetScene = targetScene
+  group.targetScene = hotspotData
 
   return group
 }
 
-function addArrow (scene, targetScene) {
+function addArrow (currentPosition, targetScene) {
   var arrowGeometry = makeArrowGeometry()
   var arrowMaterial = new THREE.MeshBasicMaterial({
     transparent: true,
@@ -331,8 +320,8 @@ function addArrow (scene, targetScene) {
 
   var x1 = targetScene.x
   var z1 = targetScene.z
-  var x2 = scene.x
-  var z2 = scene.z
+  var x2 = currentPosition.x
+  var z2 = currentPosition.z
 
   var ath = toDegree(Math.atan2((z1 - z2), (x1 - x2)))
 
