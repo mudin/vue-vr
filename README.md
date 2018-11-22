@@ -9,11 +9,11 @@ based on [threejs](https://threejs.org/)
 
 [Video Pano](https://imudin.github.io/vue-vr/#/demo-video-pano)
 
-(https://imudin.github.io/vue-vr/assets/360video.gif?raw=true)
+![360 Video Demo](https://imudin.github.io/vue-vr/assets/360video.gif?raw=true)
 
-[VR Tour](https://imudin.github.io/vue-vr/#/demo-tour?raw=true)
+[VR Tour](https://imudin.github.io/vue-vr/#/demo-tour)
 
-(https://imudin.github.io/vue-vr/assets/vrtour.gif)
+![VR Tour](https://imudin.github.io/vue-vr/assets/vrtour.gif?raw=true)
 
 ## Getting started
 using npm
