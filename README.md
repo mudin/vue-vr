@@ -1,6 +1,6 @@
 # Vue VR
-A framework for building VR applications with Vue
-based on [threejs](https://threejs.org/) and [Panolens](https://pchen66.github.io/Panolens/), inspired by [react-vr](https://github.com/facebook/react-vr)
+A Wrapper of [Panolens](https://pchen66.github.io/Panolens/) for building VR applications with Vue
+based on [threejs](https://threejs.org/)
 
 ## Demos
 [Image Pano](https://imudin.github.io/vue-vr/#/demo-pano)
@@ -89,7 +89,7 @@ Or
 Panorama with a six-face cubemap
 ```vue
 <template>
-    <Pano type='cube 'source="pano_%s.jpg"></Pano>
+    <Pano type='cube' source="pano_%s.jpg"></Pano>
 </template>
 <script>
     import { Pano } from 'vuejs-vr'
@@ -109,7 +109,7 @@ Or
 </head>
 <body>
     <div id="app">
-        <Pano type='cube 'source="pano_%s.jpg"></Pano>
+        <Pano type='cube' source="pano_%s.jpg"></Pano>
     </div>
     <script src="vue.js"></script>
     <script src="vuejs-vr.js"></script>
@@ -127,7 +127,7 @@ Or
 Panorama with 360 video
 ```vue
 <template>
-    <Pano type='video 'source="video.mp4"></Pano>
+    <Pano type='video' source="video.mp4"></Pano>
 </template>
 <script>
     import { Pano } from 'vuejs-vr'
@@ -146,7 +146,7 @@ Or
 </head>
 <body>
     <div id="app">
-        <Pano type='video 'source="video.mp4"></Pano>
+        <Pano type='video' source="video.mp4"></Pano>
     </div>
     <script src="vue.js"></script>
     <script src="vuejs-vr.js"></script>
