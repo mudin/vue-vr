@@ -9,7 +9,11 @@ based on [threejs](https://threejs.org/) and [Panolens](https://pchen66.github.i
 
 [Video Pano](https://imudin.github.io/vue-vr/#/demo-video-pano)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GvtWRoMyQXc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 [VR Tour](https://imudin.github.io/vue-vr/#/demo-tour)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/K6EO9Is7M_w?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Getting started
 using npm
