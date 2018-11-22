@@ -9,9 +9,9 @@ based on [threejs](https://threejs.org/)
 
 [Video Pano](https://imudin.github.io/vue-vr/#/demo-video-pano)
 
-(https://imudin.github.io/vue-vr/assets/360video.gif)
+(https://imudin.github.io/vue-vr/assets/360video.gif?raw=true)
 
-[VR Tour](https://imudin.github.io/vue-vr/#/demo-tour)
+[VR Tour](https://imudin.github.io/vue-vr/#/demo-tour?raw=true)
 
 (https://imudin.github.io/vue-vr/assets/vrtour.gif)
 
