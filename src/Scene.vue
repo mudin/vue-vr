@@ -102,6 +102,7 @@ export default {
         })
       }
     },
+
     loadScene () {
       _log('this.pano = ' + this.pano)
       if (!this.pano) return
@@ -125,18 +126,10 @@ export default {
           this.panorama = new PanoLens.ImagePanorama(source)
           break
       }
-      this.viewer.add(this.panorama)
 
-      this.viewer.camera.near = 0.001
-      this.viewer.camera.target = this.panorama.position
-
-      this.viewer.panorama.rotation.set(0, Math.PI, 0)
-      // this.viewer.rotation.set(0, Math.PI / 2, 0)
-
-      this.viewer.panorama.position.copy(this.position)
-
+      // init this.viewer
+      this.initViewer()
       // add hotspots
-
       var group = new THREE.Object3D()
 
       this.links.forEach((link, index) => {
@@ -255,6 +248,17 @@ export default {
       this.panorama.addEventListener('load', () => {
         that.$emit('on-load')
       })
+    },
+
+    initViewer () {
+      this.viewer.add(this.panorama)
+
+      this.viewer.camera.near = 0.001
+      this.viewer.camera.target = this.panorama.position
+
+      this.viewer.panorama.rotation.set(0, Math.PI, 0)
+      // this.viewer.rotation.set(0, Math.PI / 2, 0)
+      this.viewer.panorama.position.copy(this.position)
     }
   }
 }
