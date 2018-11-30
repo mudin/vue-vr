@@ -72,7 +72,7 @@ Or
 </head>
 <body>
     <div id="app">
-        <Pano src="pano.jpg"></Pano>
+        <Pano source="pano.jpg"></Pano>
     </div>
     <script src="vue.js"></script>
     <script src="vuejs-vr.js"></script>
