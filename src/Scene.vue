@@ -120,7 +120,6 @@ export default {
           break
         case 'video':
           this.panorama = new PanoLens.VideoPanorama(source, { autoplay: true })
-          _log('this is video')
           break
         default:
           this.panorama = new PanoLens.ImagePanorama(source)
