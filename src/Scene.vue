@@ -340,6 +340,7 @@ function makeArrowGeometry () {
   var n = t * Math.cos(60 * THREE.Math.DEG2RAD)
   var r = t * Math.sin(60 * THREE.Math.DEG2RAD)
   var o = new THREE.Shape()
+
   o.moveTo(i, 0)
   o.lineTo(i - n, r)
   o.lineTo(-n, r)
@@ -347,6 +348,7 @@ function makeArrowGeometry () {
   o.lineTo(-n, -r)
   o.lineTo(i - n, -r)
   o.lineTo(i, 0)
+
   return new THREE.ShapeGeometry(o)
 }
 

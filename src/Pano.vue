@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%; height: 100%; margin: 0; border: 0; padding: 0;">
+  <div class="v-pano">
   </div>
 </template>
 
@@ -117,3 +117,13 @@ export default {
 
 }
 </script>
+
+<style lang="less">
+.v-pano {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+</style>
