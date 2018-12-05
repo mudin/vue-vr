@@ -1,11 +1,11 @@
 <template>
-  <div style="width: 100%; height: 100%; margin: 0; border: 0; padding: 0;">
+  <div class="v-pano">
   </div>
 </template>
 
 <script>
 import PanoLens from './lib/panolens'
-const _log = console.log.bind(console);
+const _log = console.log.bind(console)
 
 export default {
   name: 'Pano',
@@ -39,9 +39,15 @@ export default {
       panorama: null
     }
   },
-  
+
   created () {
     window.addEventListener('resize', this.onResize, false)
+  },
+
+  destroyed () {
+    if (this.panorama.dispose) {
+      this.panorama.dispose()
+    }
   },
 
   mounted () {
@@ -79,8 +85,8 @@ export default {
       }
     },
     loadPano () {
-      _log('this.source = ' + this.source);
-      if (!this.source) return;
+      _log('this.source = ' + this.source)
+      if (!this.source) return
 
       switch (this.type) {
         case 'cube':
@@ -94,7 +100,6 @@ export default {
           break
         case 'video':
           this.panorama = new PanoLens.VideoPanorama(this.source, { autoplay: true })
-          console.log('this is video')
           break
         default:
           this.panorama = new PanoLens.ImagePanorama(this.source)
@@ -112,3 +117,13 @@ export default {
 
 }
 </script>
+
+<style lang="less">
+.v-pano {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+</style>
