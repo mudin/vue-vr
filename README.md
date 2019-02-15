@@ -3,17 +3,17 @@ A Wrapper of [Panolens](https://pchen66.github.io/Panolens/) for building VR app
 based on [threejs](https://threejs.org/)
 
 ## Demos
-[Image Pano](https://imudin.github.io/vue-vr/#/demo-pano)
+[Image Pano](https://mudin.github.io/vue-vr/#/demo-pano)
 
-[Cube Pano](https://imudin.github.io/vue-vr/#/demo-cube-pano)
+[Cube Pano](https://mudin.github.io/vue-vr/#/demo-cube-pano)
 
-[Video Pano](https://imudin.github.io/vue-vr/#/demo-video-pano)
+[Video Pano](https://mudin.github.io/vue-vr/#/demo-video-pano)
 
-![360 Video Demo](https://imudin.github.io/vue-vr/assets/360video.gif?raw=true)
+![360 Video Demo](https://mudin.github.io/vue-vr/assets/360video.gif?raw=true)
 
-[VR Tour](https://imudin.github.io/vue-vr/#/demo-tour)
+[VR Tour](https://mudin.github.io/vue-vr/#/demo-tour)
 
-![VR Tour](https://imudin.github.io/vue-vr/assets/vrtour.gif?raw=true)
+![VR Tour](https://mudin.github.io/vue-vr/assets/vrtour.gif?raw=true)
 
 ## Getting started
 using npm
@@ -31,7 +31,7 @@ Or Download <a href="https://unpkg.com/vuejs-vr@latest/dist/vue-vr.min.js">vue-v
 
 Clone the repository using git:
 ```
-git clone https://github.com/imudin/vue-vr.git 
+git clone https://github.com/mudin/vue-vr.git 
 ```
 Installing all dependencies:
 ```
