@@ -10,7 +10,7 @@
     "vr",
     "vr tour"
   ],
-  "version": "1.0.8",
+  "version": "1.0.9",
   "author": "imudin <imudin07@gmail.com>",
   "main": "dist/vue-vr.min.js",
   "scripts": {
