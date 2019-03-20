@@ -76,8 +76,8 @@ export default {
       htmlCode,
       loading: true,
       urls: [
-        '/assets/equirectangular.jpg',
-        '/assets/pano.png'
+        'assets/equirectangular.jpg',
+        'assets/pano.png'
       ],
       index: 0
     }
