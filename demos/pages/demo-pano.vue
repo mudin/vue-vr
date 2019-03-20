@@ -2,20 +2,25 @@
   <demo-block
     :vue-code="code"
     :html-code="htmlCode">
+
     <template slot="preview">
+      <div class="info">
+        Pano index:{{ index }}
+        <button @click="change">Toggle</button>
+      </div>
       <Pano
         @on-load="onLoad"
         :source="urls[index]"></Pano>
       <div
         class="demo-loading"
-        v-show="loading"></div>
+        v-show="loading"/>
     </template>
   </demo-block>
 </template>
 
 <script>
-import DemoBlock from '../components/demo-block'
 import Pano from '../../src/Pano.vue'
+import DemoBlock from '../components/demo-block.vue'
 
 /* eslint-disable no-useless-escape */
 const code = `
@@ -36,8 +41,8 @@ const code = `
         data () {
           return {
             urls: [
-              'assets/equirectangular.jpg',
-              'assets/pano.png'
+              '../assets/equirectangular.jpg',
+              '../assets/pano.png'
             ],
             index: 0
           }
@@ -71,8 +76,8 @@ export default {
       htmlCode,
       loading: true,
       urls: [
-        'assets/equirectangular.jpg',
-        'assets/pano.png'
+        '/assets/equirectangular.jpg',
+        '/assets/pano.png'
       ],
       index: 0
     }
@@ -80,6 +85,9 @@ export default {
   methods: {
     onLoad () {
       this.loading = false
+    },
+    change () {
+      this.index = 1 - this.index
     }
   },
   components: {
@@ -88,3 +96,16 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+  .info {
+    position: absolute;
+    top: 30px;
+    left: 10%;
+
+    button {
+      padding: 10px;
+      cursor: pointer;
+    }
+  }
+</style>
