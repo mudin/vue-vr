@@ -5,7 +5,7 @@
     <template slot="preview">
       <Pano
         @on-load="onLoad"
-        source="assets/equirectangular.jpg"></Pano>
+        :source="urls[index]"></Pano>
       <div
         class="demo-loading"
         v-show="loading"></div>
@@ -22,7 +22,7 @@ const code = `
 <template>
     <Pano
         @on-load="onLoad"
-        src="assets/equirectangular.jpg">
+        :source="urls[index]">
     </Pano>
 </template>
 
@@ -32,7 +32,16 @@ const code = `
     export default {
         components: {
             Pano
-        }
+        },
+        data () {
+          return {
+            urls: [
+              'assets/equirectangular.jpg',
+              'assets/pano.png'
+            ],
+            index: 0
+          }
+        },
     }
 <\/script>
 `
@@ -42,8 +51,7 @@ const htmlCode = `
     <div id="app">
         <Pano
             @on-load="onLoad"
-            type='cube'
-            source="assets/equirectangular.jpg">
+            :source="urls[index]">
         </Pano>
     </div>
     #scripts#
@@ -61,7 +69,12 @@ export default {
     return {
       code,
       htmlCode,
-      loading: true
+      loading: true,
+      urls: [
+        'assets/equirectangular.jpg',
+        'assets/pano.png'
+      ],
+      index: 0
     }
   },
   methods: {

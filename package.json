@@ -10,8 +10,8 @@
     "vr",
     "vr tour"
   ],
-  "version": "1.0.9",
-  "author": "imudin <imudin07@gmail.com>",
+  "version": "1.1.0",
+  "author": "mudin <imudin07@gmail.com>",
   "main": "dist/vue-vr.min.js",
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -20,17 +20,17 @@
     "release": "webpack --progress --hide-modules --config  ./build/webpack.release.js && cross-env NODE_ENV=production webpack --progress --hide-modules --config  ./build/webpack.release.min.js"
   },
   "dependencies": {
-    "npm": "^5.7.1",
+    "npm": "^6.9.0",
     "three": "^0.88.0",
     "vue": "^2.2.6"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
-    "babel-core": "^6.22.1",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.2",
     "babel-loader": "^6.4.1",
     "babel-plugin-transform-runtime": "^6.22.0",
-    "babel-preset-env": "^1.3.2",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.22.0",
     "chalk": "^1.1.3",
@@ -53,14 +53,16 @@
     "friendly-errors-webpack-plugin": "^1.1.3",
     "highlight.js": "^9.11.0",
     "html-webpack-plugin": "^2.28.0",
-    "http-proxy-middleware": "^0.17.3",
+    "http-proxy-middleware": "^0.19.1",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
     "opn": "^4.0.2",
     "optimize-css-assets-webpack-plugin": "^1.3.0",
     "ora": "^1.2.0",
     "rimraf": "^2.6.0",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
-    "url-loader": "^0.5.8",
+    "url-loader": "^1.1.2",
     "vue-eslint-parser": "^2.0.3",
     "vue-loader": "^11.3.4",
     "vue-router": "^2.5.3",
@@ -74,10 +76,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/imudin/vue-vr.git"
+    "url": "https://github.com/mudin/vue-vr.git"
   },
   "bugs": {
-    "url": "https://github.com/imudin/vue-vr/issues"
+    "url": "https://github.com/mudin/vue-vr/issues"
   },
   "license": "MIT",
   "engines": {

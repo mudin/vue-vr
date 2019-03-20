@@ -45,7 +45,7 @@ export default {
   },
 
   destroyed () {
-    if (this.panorama.dispose) {
+    if (this.panorama && this.panorama.dispose) {
       this.panorama.dispose()
     }
   },
@@ -88,6 +88,7 @@ export default {
       _log('this.source = ' + this.source)
       if (!this.source) return
 
+      let pano
       switch (this.type) {
         case 'cube':
           var l = this.source.replace('%s', 'l')
@@ -96,17 +97,25 @@ export default {
           var b = this.source.replace('%s', 'b')
           var u = this.source.replace('%s', 'u')
           var d = this.source.replace('%s', 'd')
-          this.panorama = new PanoLens.CubePanorama([r, l, u, d, f, b])
+          pano = new PanoLens.CubePanorama([r, l, u, d, f, b])
           break
         case 'video':
-          this.panorama = new PanoLens.VideoPanorama(this.source, { autoplay: true })
+          pano = new PanoLens.VideoPanorama(this.source, { autoplay: true })
           break
         default:
-          this.panorama = new PanoLens.ImagePanorama(this.source)
+          pano = new PanoLens.ImagePanorama(this.source)
           break
       }
-
+      this.setPano(pano)
+    },
+    setPano (pano) {
+      if (!pano) return
+      if (this.panorama) {
+        this.viewer.remove(this.panorama)
+      }
+      this.panorama = pano
       this.viewer.add(this.panorama)
+      this.viewer.setPanorama(this.panorama)
 
       const that = this
       this.panorama.addEventListener('load', () => {
@@ -114,7 +123,6 @@ export default {
       })
     }
   }
-
 }
 </script>
 
