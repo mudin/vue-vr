@@ -1,3 +1,18 @@
+<p align="center">
+  <a href="https://github.com/mudin/vue-vr/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/mudin/vue-vr.svg" alt="License">
+  </a>
+  <a href="https://badge.fury.io/js/vue-vr">
+    <img src="https://badge.fury.io/js/vue-vr.svg" alt="npm version">
+  </a>
+  <a href="http://hits.dwyl.io/mudin/vue-vr">
+    <img src="http://hits.dwyl.io/mudin/vue-vr.svg" alt="HitCount">
+  </a>
+  <a href="https://unpkg.com/vuejs-vr@latest/dist/vue-vr.min.js">
+    <img src="https://img.badgesize.io/mudin/vue-vr/master/dist/vue-vr.min.js?compression=gzip" alt="size">
+  </a>
+</p>
+
 # Vue VR
 A Wrapper of [Panolens](https://pchen66.github.io/Panolens/) for building VR applications with Vue
 based on [threejs](https://threejs.org/)
