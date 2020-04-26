@@ -175,6 +175,7 @@ Or
 
 ## TODO List
 * Hotspots
+* Multi touch on touchsceen devices
 * 3D objects
 * HlS, Live Streaming video Support
 
