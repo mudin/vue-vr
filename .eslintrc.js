@@ -1,43 +1,87 @@
-// https://eslint.org/docs/user-guide/configuring
-
 module.exports = {
   root: true,
-  parser: "vue-eslint-parser",
-  parserOptions: {
-    parser: "babel-eslint"
-  },
   env: {
-    commonjs: true,
-    es6: true,
     node: true
   },
-  extends: [
-    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-    "plugin:vue/strongly-recommended",
-    // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-    "standard"
-  ],
-  // required to lint *.vue files
-  plugins: ["vue"],
-  // add your custom rules here
+  extends: ['plugin:vue/essential', '@vue/airbnb'],
+  parserOptions: {
+    parser: 'babel-eslint'
+  },
+  globals: {
+    window: true,
+    THREE: true
+  },
+  plugins: ['prettier'],
   rules: {
-    // allow async-await
-    "generator-star-spacing": "off",
-    // allow debugger during development
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
-    "no-const-assign": "warn",
-    "no-this-before-super": "warn",
-    "no-undef": "warn",
-    "no-unreachable": "warn",
-    "no-unused-vars": "warn",
-    "constructor-super": "warn",
-    "valid-typeof": "warn",
-    "no-extra-semi": "warn",
-    "vue/html-self-closing": "off",
-    "vue/no-parsing-error": [
-      2, 
-      { "x-invalid-end-tag": false 
+    'vue/experimental-script-setup-vars': 'off',
+    'operator-linebreak': 'off',
+    'arrow-parens': 'off',
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'never',
+        objects: 'never',
+        imports: 'never',
+        exports: 'never',
+        functions: 'ignore'
+      }
+    ],
+    'prefer-destructuring': [
+      'error',
+      {
+        array: true,
+        object: false
+      },
+      {
+        enforceForRenamedProperties: false
+      }
+    ],
+    'arrow-parens': 'off',
+    'function-paren-newline': 'off',
+    'import/no-unresolved': 'off',
+    'import/extensions': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    // 'import/no-extraneous-dependencies': context => [
+    //   'error',
+    //   {
+    //     devDependencies: true,
+    //     packageDir: [context.getFilename(), __dirname]
+    //   }
+    // ],
+    'vue/no-unused-components': [
+      'error',
+      {
+        ignoreWhenBindingPresent: true
+      }
+    ],
+    'vue/no-use-v-if-with-v-for': 'off',
+    'no-console': 'off',
+    'vue/no-parsing-error': [
+      2,
+      {
+        'x-invalid-end-tag': false,
+        'control-character-in-input-stream': false
+      }
+    ],
+    'vue/no-use-v-if-with-v-for': [
+      'error',
+      {
+        allowUsingIterationVar: true // default: false
+      }
+    ],
+    'max-len': [
+      'error',
+      {
+        code: 100,
+        ignorePattern: true,
+        ignoreUrls: true,
+        ignoreStrings: true
+      }
+    ],
+    'no-param-reassign': [
+      2,
+      {
+        props: false
       }
     ]
   }

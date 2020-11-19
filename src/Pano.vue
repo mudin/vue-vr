@@ -1,11 +1,10 @@
 <template>
-  <div class="v-pano">
-  </div>
+  <div class="v-pano"></div>
 </template>
 
 <script>
-import PanoLens from './lib/panolens'
-const _log = console.log.bind(console)
+import * as PanoLens from './lib/panolens';
+const _log = console.log.bind(console);
 
 export default {
   name: 'Pano',
@@ -29,7 +28,7 @@ export default {
     }
   },
 
-  data () {
+  data() {
     return {
       size: {
         width: this.width,
@@ -37,93 +36,95 @@ export default {
       },
       viewer: null,
       panorama: null
-    }
+    };
   },
 
-  created () {
-    window.addEventListener('resize', this.onResize, false)
+  created() {
+    window.addEventListener('resize', this.onResize, false);
   },
 
-  destroyed () {
+  destroyed() {
     if (this.panorama && this.panorama.dispose) {
-      this.panorama.dispose()
+      this.panorama.dispose();
     }
   },
 
-  mounted () {
+  mounted() {
     if (this.width === undefined || this.height === undefined) {
       this.size = {
         width: this.$el.offsetWidth,
         height: this.$el.offsetHeight
-      }
+      };
     }
 
     this.viewer = new PanoLens.Viewer({
       container: this.$el,
       cameraFov: 100
-    })
+    });
 
-    this.loadPano()
+    this.loadPano();
   },
   watch: {
-    source () {
-      if (!this.viewer) return
-      if (!this.panorama) return
-      this.loadPano()
+    source() {
+      if (!this.viewer) return;
+      if (!this.panorama) return;
+      this.loadPano();
     }
   },
 
   methods: {
-    onResize () {
+    onResize() {
       if (this.width === undefined || this.height === undefined) {
         this.$nextTick(() => {
           this.size = {
             width: this.$el.offsetWidth,
             height: this.$el.offsetHeight
-          }
-        })
+          };
+        });
       }
     },
-    loadPano () {
-      _log('this.source = ' + this.source)
-      if (!this.source) return
+    loadPano() {
+      _log('this.source = ' + this.source);
+      if (!this.source) return;
 
-      let pano
+      let pano;
       switch (this.type) {
         case 'cube':
-          var l = this.source.replace('%s', 'l')
-          var f = this.source.replace('%s', 'f')
-          var r = this.source.replace('%s', 'r')
-          var b = this.source.replace('%s', 'b')
-          var u = this.source.replace('%s', 'u')
-          var d = this.source.replace('%s', 'd')
-          pano = new PanoLens.CubePanorama([r, l, u, d, f, b])
-          break
+          var l = this.source.replace('%s', 'l');
+          var f = this.source.replace('%s', 'f');
+          var r = this.source.replace('%s', 'r');
+          var b = this.source.replace('%s', 'b');
+          var u = this.source.replace('%s', 'u');
+          var d = this.source.replace('%s', 'd');
+          pano = new PanoLens.CubePanorama([r, l, u, d, f, b]);
+          break;
         case 'video':
-          pano = new PanoLens.VideoPanorama(this.source, { autoplay: true })
-          break
+          pano = new PanoLens.VideoPanorama(this.source, {
+            autoplay: true
+          });
+          break;
         default:
-          pano = new PanoLens.ImagePanorama(this.source)
-          break
+          pano = new PanoLens.ImagePanorama(this.source);
+          break;
       }
-      this.setPano(pano)
+      this.setPano(pano);
     },
-    setPano (pano) {
-      if (!pano) return
+    setPano(pano) {
+      if (!pano) return;
       if (this.panorama) {
-        this.viewer.remove(this.panorama)
+        this.viewer.remove(this.panorama);
       }
-      this.panorama = pano
-      this.viewer.add(this.panorama)
-      this.viewer.setPanorama(this.panorama)
+      this.panorama = pano;
+      this.viewer.add(this.panorama);
+      this.viewer.setPanorama(this.panorama);
 
-      const that = this
+      const that = this;
       this.panorama.addEventListener('load', () => {
-        that.$emit('on-load')
-      })
+        that.$emit('on-load');
+      });
     }
   }
-}
+};
 </script>
 
 <style lang="less">
