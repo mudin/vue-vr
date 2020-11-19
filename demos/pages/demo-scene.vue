@@ -1,27 +1,23 @@
 <template>
-  <demo-block
-    :vue-code="code"
-    :html-code="htmlCode">
+  <demo-block :vue-code="code" :html-code="htmlCode">
     <template slot="preview">
       <Scene
         @on-load-start="onLoadStart"
         @on-load="onLoad"
-        :pano='scene.pano'
-        :position='scene.position'
-        :rotation='scene.rotation'
-        :links='scene.links'>
+        :pano="scene.pano"
+        :position="scene.position"
+        :rotation="scene.rotation"
+        :links="scene.links"
+      >
       </Scene>
-      <div
-        class="demo-loading"
-        v-show="loading">
-      </div>
+      <div class="demo-loading" v-show="loading"></div>
     </template>
   </demo-block>
 </template>
 
 <script>
-import DemoBlock from '../components/demo-block'
-import Scene from '../../src/Scene.vue'
+import DemoBlock from '../components/demo-block';
+import { Scene } from '../../src';
 
 /* eslint-disable no-useless-escape */
 const code = `
@@ -34,7 +30,7 @@ const code = `
     <div
       class="demo-loading"
       v-show="loading"></div>
-      
+
 </template>
 
 <script>
@@ -60,7 +56,7 @@ const code = `
           }
         }
     }
-<\/script>`
+<\/script>`;
 
 const htmlCode = `
 <body>
@@ -79,12 +75,12 @@ const htmlCode = `
             el: '#app'
         })
     <\/script>
-</body>`
+</body>`;
 /* eslint-enable no-useless-escape */
 
 export default {
   name: 'DemoScene',
-  data () {
+  data() {
     return {
       code,
       htmlCode,
@@ -101,7 +97,7 @@ export default {
         },
         rotation: {
           x: 0,
-          y: 135.0 * Math.PI / 180.0,
+          y: (135.0 * Math.PI) / 180.0,
           z: 0
         },
         links: [
@@ -123,21 +119,21 @@ export default {
           }
         ]
       }
-    }
+    };
   },
   methods: {
-    onLoad () {
-      console.log('onLoad')
-      this.loading = false
+    onLoad() {
+      console.log('onLoad');
+      this.loading = false;
     },
-    onLoadStart () {
-      console.log('onLoadStart')
-      this.loading = true
+    onLoadStart() {
+      console.log('onLoadStart');
+      this.loading = true;
     }
   },
   components: {
     Scene,
     DemoBlock
   }
-}
+};
 </script>
