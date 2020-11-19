@@ -9,7 +9,7 @@
     <img src="http://hits.dwyl.io/mudin/vue-vr.svg" alt="HitCount">
   </a>
   <a href="https://unpkg.com/vuejs-vr@latest/dist/vue-vr.min.js">
-    <img src="https://img.badgesize.io/mudin/vue-vr/master/dist/vue-vr.min.js?compression=gzip" alt="size">
+    <img src="https://img.badgesize.io/mudin/vue-vr/master/dist/vue-vr.js?compression=gzip" alt="size">
   </a>
 </p>
 
@@ -175,7 +175,9 @@ Or
 
 ## TODO List
 * Hotspots
+* Multi touch on touchsceen devices
 * 3D objects
+* HlS, Live Streaming video Support
 
 ## Contributing
 If you would like to contribute code you can do so through GitHub by forking the repository and sending a pull request.
