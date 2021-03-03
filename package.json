@@ -20,7 +20,7 @@
     "release": "webpack --progress --hide-modules --config  ./build/webpack.release.js && cross-env NODE_ENV=production webpack --progress --hide-modules --config  ./build/webpack.release.min.js"
   },
   "dependencies": {
-    "three": "^0.105.2",
+    "three": "^0.125.0",
     "vue": "^2.2.6"
   },
   "devDependencies": {
