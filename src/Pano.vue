@@ -25,7 +25,77 @@ export default {
     height: {
       type: Number,
       default: 100
-    }
+    },
+    controlBar: {
+        type: Boolean,
+        default: true
+    },
+      autoHideControlBar: {
+          type: Boolean,
+          default: false
+      },
+      autoHideInfospot: {
+          type: Boolean,
+          default: true
+      },
+      horizontalView: {
+          type: Boolean,
+          default: false
+      },
+      clickTolerance: {
+          type: Number,
+          default: 10
+      },
+      cameraFov: {
+          type: Number,
+          default: 100
+      },
+      reverseDragging: {
+          type: Boolean,
+          default: false
+      },
+      enableReticle: {
+          type: Boolean,
+          default: false
+      },
+      dwellTime: {
+          type: Number,
+          default: 1500
+      },
+      autoReticleSelect: {
+          type: Boolean,
+          default: true
+      },
+      viewIndicator: {
+          type: Boolean,
+          default: false
+      },
+      indicatorSize: {
+          type: Number,
+          default: 30
+      },
+      autoRotate: {
+          type: Boolean,
+          default: false
+      },
+      autoRotateSpeed: {
+          type: Number,
+          default: 2
+      },
+      autoRotateActivationDuration: {
+          type: Number,
+          default: 5000
+      },
+      output:
+          {
+              type: String,
+              default:'none'
+          },
+      videoAutoPlay:
+          {
+          type: Boolean,
+          default: true
+      }
   },
 
   data() {
@@ -59,7 +129,22 @@ export default {
 
     this.viewer = new PanoLens.Viewer({
       container: this.$el,
-      cameraFov: 100
+      cameraFov: this.cameraFov,
+      controlBar: this.controlBar,
+      autoHideControlBar: this.autoHideControlBar,
+      autoHideInfospot: this.autoHideInfospot,
+      horizontalView: this.horizontalView,
+      clickTolerance: this.clickTolerance,
+      reverseDragging: this.reverseDragging,
+      enableReticle: this.enableReticle,
+      dwellTime: this.dwellTime,
+      autoReticleSelect: this.autoReticleSelect,
+      viewIndicator: this.viewIndicator,
+      indicatorSize: this.indicatorSize,
+      output: this.output,
+      autoRotate: this.autoRotate,
+      autoRotateSpeed: this.autoRotateSpeed,
+      autoRotateActivationDuration: this.autoRotateActivationDuration,
     });
 
     this.loadPano();
@@ -100,7 +185,7 @@ export default {
           break;
         case 'video':
           pano = new PanoLens.VideoPanorama(this.source, {
-            autoplay: true
+            autoplay: this.videoAutoPlay
           });
           break;
         default:
